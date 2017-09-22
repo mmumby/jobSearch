@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
-import '../stylesheets/App.css';
+import '../styles/App.css';
 import JobList from './JobList';
+import NavBar from './NavBar';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <h2>Jobs</h2>
+        <div>
+          <NavBar />
+          <JobList />
         </div>
-        <p className="App-intro">
-        <JobList />
-        </p>
       </div>
     );
   }
