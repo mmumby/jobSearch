@@ -1,26 +1,35 @@
 .nav-header {
-  background-color: #3e483f;
-  height: 200px;
+  background: white url("./img/background-photo.jpg") no-repeat center center / cover;
+  background-color: white;
+  height: 400px;
   padding: 100px;
-  color: white;
+  color: black;
+  font-size: larger;
 }
 
 .search-bar {
-  border: 1px solid black;
+  border: 2px solid black;
   padding: 20px;
-  width: 700px;
-  font-size: large;
+  width: 850px;
+  font-size: larger;
   border-radius: 5px;
 }
 
+.search-bar input[type="text"] {
+    position: relative;
+}
+
+input { font-family: 'FontAwesome'; } /* This is for the placeholder */
+
 .fixed-nav-header {
-  background-color: #3e483f;
+  background-color: #a3a3a3;
   height: 100px;
   padding: 10px;
   color: white;
   position: fixed;
   width: 100%;
   top: 0;
+  transition: opacity .5s, background .5s;
 }
 
 .fixed-nav-header .search-bar {

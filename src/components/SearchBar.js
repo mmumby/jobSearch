@@ -5,7 +5,7 @@ class SearchBar extends Component {
   render() {
     return (
       <div>
-        <input className="search-bar" placeholder="Search..."/>
+        <input className="search-bar" placeholder="&#xf002;  Search..."/>
       </div>
     );
   }
