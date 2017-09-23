@@ -9,14 +9,14 @@ class NavBar extends Component {
 
   componentDidMount() {
     document.addEventListener('scroll', () => {
-      this.setState({ isTop: window.scrollY < 100 })
+      this.setState({ isTop: window.scrollY < 150 })
     });
   }
 
   render() {
     return (
         <div className={this.state.isTop ? 'nav-header' : 'fixed-nav-header'}>
-          <div>
+          <div className="header-content">
             <h1 className="header"> JobSearch </h1>
             <SearchBar />
           </div>

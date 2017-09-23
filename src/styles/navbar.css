@@ -7,6 +7,9 @@
   font-size: larger;
 }
 
+.header-content {
+  margin-right: 60px;
+}
 .search-bar {
   border: 2px solid black;
   padding: 20px;
@@ -22,14 +25,13 @@
 input { font-family: 'FontAwesome'; } /* This is for the placeholder */
 
 .fixed-nav-header {
-  background-color: #a3a3a3;
   height: 100px;
   padding: 10px;
   color: white;
   position: fixed;
   width: 100%;
   top: 0;
-  transition: opacity .5s, background .5s;
+  background: linear-gradient(to bottom, rgb(160, 158, 158), rgb(160, 158, 158),rgb(255, 255, 255) 100%);
 }
 
 .fixed-nav-header .search-bar {
