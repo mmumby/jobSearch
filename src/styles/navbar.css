@@ -12,3 +12,25 @@
   font-size: large;
   border-radius: 5px;
 }
+
+.fixed-nav-header {
+  background-color: #3e483f;
+  height: 100px;
+  padding: 10px;
+  color: white;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+.fixed-nav-header .search-bar {
+  float: right;
+  margin: 15px 30px 0 0;
+  width: 300px;
+}
+
+.fixed-nav-header .header{
+  float: left;
+  margin: 30px 30px 0;
+}
+
