@@ -12,6 +12,7 @@ class SearchBar extends Component {
   searchJobsKeyDown(event){
     if (event.key === 'Enter') {
       console.log("searchJobs: "+this.state.searchValue);
+      event.target.value = '';
     }
   }
 
