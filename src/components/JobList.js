@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/joblist.css';
-// import { createStore } from 'redux';
+import { createStore } from 'redux';
 
 class JobList extends Component {
   render() {

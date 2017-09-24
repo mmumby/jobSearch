@@ -9,8 +9,10 @@ class SearchBar extends Component {
     }
   }
 
-  searchJobs(){
-    console.log("searchJobs: "+this.state.searchValue);
+  searchJobsKeyDown(event){
+    if (event.key === 'Enter') {
+      console.log("searchJobs: "+this.state.searchValue);
+    }
   }
 
   updateSearch(event){
@@ -24,8 +26,7 @@ class SearchBar extends Component {
   render() {
     return (
       <div>
-        <input onChange={this.updateSearch.bind(this)} type="text" className="search-bar" placeholder="&#xf002;  Search..."/>
-        <button onClick={this.searchJobs.bind(this)}>Search</button>
+        <input onKeyDown={this.searchJobsKeyDown.bind(this)} onChange={this.updateSearch.bind(this)} type="text" className="search-bar" placeholder="&#xf002;  Search and hit ENTER"/>
       </div>
     );
   }
