@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/joblist.css';
-import { createStore } from 'redux';
-// import superagent from 'superagent';
+
 
 class JobList extends Component {
   render() {

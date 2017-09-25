@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import '../styles/navbar.css';
 import superagent from 'superagent';
+import { connect } from 'react-redux';
+import actions from '../actions'
 
 class SearchBar extends Component {
   constructor(){
     super()
     this.state ={
       searchValue: '',
-      feed: []
     }
   }
 
@@ -17,7 +18,7 @@ class SearchBar extends Component {
       event.target.value = '';
 
       superagent
-        .get('http://api.dataatwork.org/v1/jobs')
+        .get('http://api.dataatwork.org/v1/jobs?limit=500')
         .query(null)
         .set('Accept', 'application/json')
         .end((err, response) => {
@@ -26,9 +27,7 @@ class SearchBar extends Component {
             return
           }
           console.log('Response:' + JSON.stringify(response.body))
-          this.setState({
-            feed: response.body
-          })
+         this.props.fetchFeed(response.body)
         })
     }
   }
@@ -42,11 +41,12 @@ class SearchBar extends Component {
   }
 
   render() {
+    const feed = this.props.feed || []
     return (
       <div>
         <input onKeyDown={this.searchJobsKeyDown.bind(this)} onChange={this.updateSearch.bind(this)} type="text" className="search-bar" placeholder="&#xf002;  Search and hit ENTER"/>
       <p> jobList </p>
-      { this.state.feed.map((post, i) => {
+      { feed.map((post, i) => {
           return (
             <div key={post.uuid}>
               <p> {post.title} </p>
@@ -59,4 +59,21 @@ class SearchBar extends Component {
   }
 }
 
-export default SearchBar;
+const stateToProps = (state) => {
+  return {
+    feed: state.feed.feed
+  }
+}
+
+const dispatchToProps = (dispatch) => {
+  return {
+    fetchFeed: (feed) => dispatch(actions.fetchFeed(feed))
+  }
+}
+
+
+
+
+
+export default connect(stateToProps, dispatchToProps)(SearchBar);
+
