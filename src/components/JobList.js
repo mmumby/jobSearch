@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/joblist.css';
 
-
 class JobList extends Component {
   render() {
     return (
