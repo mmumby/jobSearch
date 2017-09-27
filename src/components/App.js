@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
-import JobList from './JobList';
-import NavBar from './NavBar';
+import Search from './Search';
+import Header from './Header';
 import store from '../store';
 import { Provider } from 'react-redux'
 
@@ -10,8 +10,8 @@ class App extends Component {
     return (
       <Provider store={store.configure()}>
         <div className="App">
-            <NavBar />
-            <JobList />
+            <Header />
+            <Search />
         </div>
       </Provider>
     );

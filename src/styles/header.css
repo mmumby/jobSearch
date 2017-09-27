@@ -1,14 +1,17 @@
 .nav-header {
   background: white url("./img/background-photo.jpg") no-repeat center center / cover;
   background-color: white;
- /* height: 400px;*/
+  min-height: 400px;
   padding: 100px;
   color: black;
   font-size: larger;
 }
 
-.header-content {
+.header{
+  font-family: 'Satisfy', cursive;
+  font-size: 100px;
   margin-right: 60px;
+  margin-top: 0;
 }
 .search-bar {
   border: 2px solid black;
@@ -22,26 +25,21 @@
     position: relative;
 }
 
-input { font-family: 'FontAwesome'; } /* This is for the placeholder */
+input { font-family: 'FontAwesome'; }
 
 .fixed-nav-header {
-/*  height: 100px;*/
+  height: 70px;
   padding: 10px;
-  color: white;
+  color: #212121;
   position: fixed;
   width: 100%;
   top: 0;
   background: linear-gradient(to bottom, rgb(160, 158, 158), rgb(160, 158, 158),rgb(255, 255, 255) 100%);
 }
 
-.fixed-nav-header .search-bar {
-  float: right;
-  margin: 15px 30px 0 0;
-  width: 300px;
-}
-
 .fixed-nav-header .header{
+  font-size: 50px;
   float: left;
-  margin: 30px 30px 0;
+  margin-right: 20px;
 }
 

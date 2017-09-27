@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import '../styles/navbar.css';
+import '../styles/header.css';
 import superagent from 'superagent';
 import { connect } from 'react-redux';
 import actions from '../actions'
+import JobList from './JobList';
 
-class SearchBar extends Component {
+
+class Search extends Component {
   constructor(){
     super()
     this.state ={
@@ -41,19 +43,11 @@ class SearchBar extends Component {
   }
 
   render() {
-    const feed = this.props.feed || []
     return (
-      <div>
-        <input onKeyDown={this.searchJobsKeyDown.bind(this)} onChange={this.updateSearch.bind(this)} type="text" className="search-bar" placeholder="&#xf002;  Search by job title and hit ENTER"/>
-      { feed.map((post, i) => {
-          return (
-            <div key={post.uuid}>
-              <p> {post.suggestion} </p>
-            </div>
-          )
-        })
-      }
-      </div>
+        <div>
+          <input onKeyDown={this.searchJobsKeyDown.bind(this)} onChange={this.updateSearch.bind(this)} type="text" className="search-bar" placeholder="&#xf002;  Search by job title and hit ENTER"/>
+            <JobList feed={this.props.feed}/>
+        </div>
     )
   }
 }
@@ -70,9 +64,5 @@ const dispatchToProps = (dispatch) => {
   }
 }
 
-
-
-
-
-export default connect(stateToProps, dispatchToProps)(SearchBar);
+export default connect(stateToProps, dispatchToProps)(Search);
 

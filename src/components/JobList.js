@@ -1,13 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../styles/joblist.css';
 
-class JobList extends Component {
-  render() {
+const JobList = (props) =>{
+  const feed = props.feed || []
     return (
-      <div className="joblist-container">
+      <div>
+        <div className="joblist-container">
+          { feed.map((post, i) => {
+              return (
+                <div key={post.uuid}>
+                  <p> {post.suggestion} </p>
+                </div>
+              )
+            })
+          }
+        </div>
       </div>
     );
-  }
 }
 
 export default JobList;
