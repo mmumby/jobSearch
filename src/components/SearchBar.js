@@ -18,8 +18,8 @@ class SearchBar extends Component {
       event.target.value = '';
 
       superagent
-        .get('http://api.dataatwork.org/v1/jobs?limit=500')
-        .query(null)
+        .get('http://api.dataatwork.org/v1/jobs/autocomplete?')
+        .query(`contains=${this.state.searchValue}`)
         .set('Accept', 'application/json')
         .end((err, response) => {
           if (err) {
@@ -45,11 +45,10 @@ class SearchBar extends Component {
     return (
       <div>
         <input onKeyDown={this.searchJobsKeyDown.bind(this)} onChange={this.updateSearch.bind(this)} type="text" className="search-bar" placeholder="&#xf002;  Search and hit ENTER"/>
-      <p> jobList </p>
       { feed.map((post, i) => {
           return (
             <div key={post.uuid}>
-              <p> {post.title} </p>
+              <p> {post.suggestion} </p>
             </div>
           )
         })
