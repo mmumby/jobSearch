@@ -44,7 +44,7 @@ class SearchBar extends Component {
     const feed = this.props.feed || []
     return (
       <div>
-        <input onKeyDown={this.searchJobsKeyDown.bind(this)} onChange={this.updateSearch.bind(this)} type="text" className="search-bar" placeholder="&#xf002;  Search and hit ENTER"/>
+        <input onKeyDown={this.searchJobsKeyDown.bind(this)} onChange={this.updateSearch.bind(this)} type="text" className="search-bar" placeholder="&#xf002;  Search by job title and hit ENTER"/>
       { feed.map((post, i) => {
           return (
             <div key={post.uuid}>
