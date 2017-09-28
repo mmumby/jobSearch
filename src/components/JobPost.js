@@ -3,10 +3,12 @@ import '../styles/joblist.css';
 import ToggleDisplay from 'react-toggle-display';
 
 class JobPost extends Component {
+    // react state to toggle more info
     constructor() {
     super();
     this.state = {
-        show: false
+        show: false,
+        key: '',
     };
   }
   handleClick(event){
