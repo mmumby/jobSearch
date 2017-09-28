@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import '../styles/header.css';
-import superagent from 'superagent';
-import { connect } from 'react-redux';
-import actions from '../actions'
 import JobList from './JobList';
+import { connect } from 'react-redux';
+import { jobsFetchSearchData } from '../actions/index';
 
 
 class Search extends Component {
@@ -18,19 +17,7 @@ class Search extends Component {
     if (event.key === 'Enter') {
       console.log("searchJobs: "+this.state.searchValue);
       event.target.value = '';
-
-      superagent
-        .get('http://api.dataatwork.org/v1/jobs/autocomplete?')
-        .query(`contains=${this.state.searchValue}`)
-        .set('Accept', 'application/json')
-        .end((err, response) => {
-          if (err) {
-            console.log('Error:' + err)
-            return
-          }
-          console.log('Response:' + JSON.stringify(response.body))
-         this.props.fetchFeed(response.body)
-        })
+      this.props.fetchData(`http://api.dataatwork.org/v1/jobs/autocomplete?contains=${this.state.searchValue}`);
     }
   }
 
@@ -44,25 +31,28 @@ class Search extends Component {
 
   render() {
     return (
+      <div>
         <div>
           <input onKeyDown={this.searchJobsKeyDown.bind(this)} onChange={this.updateSearch.bind(this)} type="text" className="search-bar" placeholder="&#xf002;  Search by job title and hit ENTER"/>
-            <JobList feed={this.props.feed}/>
+          <JobList />
         </div>
+      </div>
     )
   }
 }
 
-const stateToProps = (state) => {
-  return {
-    feed: state.feed.feed
-  }
-}
+const mapStateToProps = (state) => {
+    return {
+        searchJobs: state.searchJobs
+    };
+};
 
-const dispatchToProps = (dispatch) => {
-  return {
-    fetchFeed: (feed) => dispatch(actions.fetchFeed(feed))
-  }
-}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchData: (url) => dispatch(jobsFetchSearchData(url))
+    };
+};
 
-export default connect(stateToProps, dispatchToProps)(Search);
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
+
 

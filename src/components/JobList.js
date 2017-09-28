@@ -1,22 +1,37 @@
-import React from 'react';
-import '../styles/joblist.css';
 
-const JobList = (props) =>{
-  const feed = props.feed || []
-    return (
-      <div>
-        <div className="joblist-container">
-          { feed.map((post, i) => {
-              return (
-                <div key={post.uuid}>
-                  <p> {post.suggestion} </p>
-                </div>
-              )
-            })
-          }
-        </div>
-      </div>
-    );
+import '../styles/joblist.css';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { jobsFetchData } from '../actions/index';
+
+class JobList extends Component {
+    componentDidMount() {
+        this.props.fetchData('http://api.dataatwork.org/v1/jobs?limit=500');
+    }
+
+    render() {
+        return (
+            <div>
+                {this.props.jobs.map((job) => (
+                    <p key={job.uuid}>
+                        {job.title}
+                    </p>
+                ))}
+            </div>
+        )
+    }
 }
 
-export default JobList;
+const mapStateToProps = (state) => {
+    return {
+        jobs: state.jobs
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchData: (url) => dispatch(jobsFetchData(url))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(JobList);

@@ -1,19 +1,20 @@
-import constants from '../constants'
 
-const initialState = {
-  feed: []
+export function jobs(state = [], action) {
+    switch (action.type) {
+        case 'JOBS_FETCH_DATA_SUCCESS':
+            return action.jobs;
+
+        default:
+            return state;
+    }
 }
 
-export default (state = initialState, action) => {
+export function searchJobs(state = [], action) {
+    switch (action.type) {
+        case 'JOBS_FETCH_SEARCH_DATA':
+            return action.searchJobs;
 
-  switch (action.type) {
-    case constants.FEED_RECEIVED:
-      console.log('FEED_RECEIVED' + JSON.stringify(action.data))
-      let newState = Object.assign({}, state)
-      newState['feed'] = action.data
-      return newState
-    default:
-      return state
-  }
-
+        default:
+            return state;
+    }
 }
