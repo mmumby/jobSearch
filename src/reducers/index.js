@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
-import { jobs, searchJobs } from './feedReducer';
+import { jobs } from './feedReducer';
 
 export default combineReducers({
     jobs,
-    searchJobs,
 });

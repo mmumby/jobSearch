@@ -6,10 +6,10 @@ export function jobsFetchDataSuccess(jobs) {
     };
 }
 
-export function jobsFetchSearchDataSuccess(searchJobs) {
+export function jobsFetchSearchDataSuccess(jobs) {
     return {
         type: 'JOBS_FETCH_SEARCH_DATA_SUCCESS',
-        searchJobs
+        jobs
     };
 }
 
@@ -25,7 +25,7 @@ export function jobsFetchSearchData(url) {
                 return response;
             })
             .then((response) => response.json())
-            .then((searchJobs) => dispatch(jobsFetchSearchDataSuccess(searchJobs)))
+            .then((jobs) => dispatch(jobsFetchSearchDataSuccess(jobs)))
     };
 }
 

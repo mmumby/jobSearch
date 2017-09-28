@@ -43,7 +43,7 @@ class Search extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        searchJobs: state.searchJobs
+        jobs: state.jobs
     };
 };
 
