@@ -1,5 +1,20 @@
 
 .joblist-container {
-  margin: auto;
-  padding: 50px;
+  margin-left: 365px;
+}
+
+.job-post{
+  border: .6px solid #a2a2a2;
+  width: 850px;
+  font-size: larger;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.job-post:hover {
+cursor: pointer;
+background-color: #a2a2a2;
+color: white;
 }

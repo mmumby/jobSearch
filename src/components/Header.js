@@ -8,7 +8,7 @@ class Header extends Component {
 
   componentDidMount() {
     document.addEventListener('scroll', () => {
-      this.setState({ isTop: window.scrollY < 200 })
+      this.setState({ isTop: window.scrollY < 510 })
     });
   }
 

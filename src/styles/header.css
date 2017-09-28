@@ -1,8 +1,10 @@
-.nav-header {
+.header-content {
   background: white url("./img/background-photo.jpg") no-repeat center center / cover;
   background-color: white;
   min-height: 400px;
   padding: 100px;
+}
+.nav-header {
   color: black;
   font-size: larger;
 }
@@ -34,7 +36,6 @@ input { font-family: 'FontAwesome'; }
   position: fixed;
   width: 100%;
   top: 0;
-  background: linear-gradient(to bottom, rgb(160, 158, 158), rgb(160, 158, 158),rgb(255, 255, 255) 100%);
 }
 
 .fixed-nav-header .header{
@@ -42,4 +43,6 @@ input { font-family: 'FontAwesome'; }
   float: left;
   margin-right: 20px;
 }
+
+
 
