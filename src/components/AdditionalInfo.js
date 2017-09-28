@@ -6,7 +6,11 @@ class AdditionalInfo extends Component {
   render() {
     return (
         <div className="additional-info">
-          <p> test text </p>
+          <input type="text" className="skill-search-bar" placeholder="&#xf002;  Search by Skill and hit ENTER"/>
+            <div>
+              <h3>Popular Searches</h3>
+              <p> text text text text text text text text text text text </p>
+            </div>
         </div>
     );
   }

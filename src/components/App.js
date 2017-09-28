@@ -3,6 +3,7 @@ import '../styles/App.css';
 import Search from './Search';
 import Header from './Header';
 import ScrollTop from './ScrollTop';
+import AdditionalInfo from './AdditionalInfo';
 
 class App extends Component {
   render() {
@@ -10,6 +11,7 @@ class App extends Component {
         <div className="App">
             <Header />
             <Search />
+            <AdditionalInfo />
             <ScrollTop />
         </div>
     );
