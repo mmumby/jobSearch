@@ -25,7 +25,7 @@ class JobPost extends Component {
                 <div className="job-post" key={job.uuid} onClick={this.handleClick.bind(this)}>
                     {job.title}
                     <ToggleDisplay if={this.state.show} tag="section">
-                      I am rendered in a section and removed from the DOM when if is false.
+                      skill info goes here..
                     </ToggleDisplay>
                 </div>
                 ))}
