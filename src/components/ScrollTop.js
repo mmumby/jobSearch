@@ -6,20 +6,22 @@ class ScrollTop extends Component {
     super();
 
     this.state = {
-        intervalId: 0
+        pageTop: 0
     };
   }
 
   scrollStep() {
     if (window.pageYOffset === 0) {
-        clearInterval(this.state.intervalId);
+        clearInterval(this.state.pageTop);
     }
     window.scroll(0, window.pageYOffset - this.props.scrollStepInPx);
   }
 
   scrollToTop() {
-    let intervalId = setInterval(this.scrollStep.bind(this), this.props.delayInMs);
-    this.setState({ intervalId: intervalId });
+    let pageTop = setInterval(this.scrollStep.bind(this), this.props.delayInMs);
+    this.setState({
+        pageTop: pageTop
+      });
   }
 
   render () {
