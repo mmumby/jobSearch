@@ -5,29 +5,21 @@ import Header from './Header';
 import ScrollTop from './ScrollTop';
 import AdditionalInfo from './AdditionalInfo';
 import { persistStore } from 'redux-persist';
-import { asyncSessionStorage } from 'redux-persist/storages'
+import localForage from 'localforage'
 import configureStore from '../store/configureStore';
 import { Provider } from 'react-redux';
 
 
 const store = configureStore();
+persistStore(store)
 
 class App extends Component {
-constructor(){
-    super()
-    this.state ={
-      isReady: false,
-    }
-  }
 
   componentDidMount() {
     persistStore(store,
     {
-      storage: asyncSessionStorage,
+      storage: localForage,
     },
-    () => {
-      this.setState({isReady: true})
-      }
     )
   }
 
