@@ -34,7 +34,10 @@ class Search extends Component {
     return (
       <div>
         <div>
-          <input onKeyDown={this.searchJobsKeyDown.bind(this)} onChange={this.updateSearch.bind(this)} type="text" className="search-bar" placeholder="&#xf002;  Search by job title and hit ENTER"/>
+          <input onKeyDown={this.searchJobsKeyDown.bind(this)}
+                onChange={this.updateSearch.bind(this)}
+                type="text" className="search-bar"
+                placeholder="&#xf002;  Search by job title and hit ENTER"/>
           <JobList />
         </div>
       </div>

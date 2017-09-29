@@ -19,10 +19,21 @@ class AdditionalInfo extends Component {
     }
   }
 
+updateSearch(event){
+    console.log("updateSearch: "+event.target.value)
+// will change to redux.
+    this.setState({
+      searchValue: event.target.value
+    })
+  }
+
   render() {
     return (
         <div className="additional-info">
-          <input onKeyDown={this.searchSkillsKeyDown.bind(this)} type="text" className="skill-search-bar" placeholder="&#xf002;  Search by Skill and hit ENTER"/>
+          <input onKeyDown={this.searchSkillsKeyDown.bind(this)}
+                onChange={this.updateSearch.bind(this)}
+                type="text" className="skill-search-bar"
+                placeholder="&#xf002;  Search by Skill and hit ENTER"/>
             <div>
               <h3>Popular Searches</h3>
               <p> text text text text text text text text text text text </p>
