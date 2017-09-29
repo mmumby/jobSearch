@@ -2,7 +2,7 @@
 import '../styles/joblist.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { jobsFetchData } from '../actions/index';
+import { fetchJobs } from '../actions/index';
 import JobPost from './JobPost';
 
 class JobList extends Component {
@@ -28,7 +28,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchData: (url) => dispatch(jobsFetchData(url))
+        fetchData: (url) => dispatch(fetchJobs(url))
     };
 };
 

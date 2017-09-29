@@ -24,7 +24,8 @@ class JobPost extends Component {
             {this.props.jobs.map((job) => (
                 <div className="job-post" key={job.uuid} onClick={this.handleClick.bind(this)}>
                     {job.title}
-                    <ToggleDisplay if={this.state.show} tag="section">
+                    {job.suggestion}
+                    <ToggleDisplay if={this.state.show} key={job.uuid} tag="section">
                       skill info goes here..
                     </ToggleDisplay>
                 </div>

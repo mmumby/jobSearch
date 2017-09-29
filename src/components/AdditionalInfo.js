@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/additionalInfo.css';
+import { connect } from 'react-redux';
+import { fetchSkillsSearchData } from '../actions/index';
 
 class AdditionalInfo extends Component {
   constructor(){
@@ -17,19 +19,10 @@ class AdditionalInfo extends Component {
     }
   }
 
-  updateSkillSearch(event){
-    console.log("updateSearch: "+event.target.value)
-// will change to redux.
-    this.setState({
-      searchValue: event.target.value
-    })
-  }
-
-
   render() {
     return (
         <div className="additional-info">
-          <input onKeyDown={this.searchSkillsKeyDown.bind(this)} onChange={this.updateSkillSearch.bind(this)} type="text" className="skill-search-bar" placeholder="&#xf002;  Search by Skill and hit ENTER"/>
+          <input onKeyDown={this.searchSkillsKeyDown.bind(this)} type="text" className="skill-search-bar" placeholder="&#xf002;  Search by Skill and hit ENTER"/>
             <div>
               <h3>Popular Searches</h3>
               <p> text text text text text text text text text text text </p>
@@ -39,4 +32,17 @@ class AdditionalInfo extends Component {
   }
 }
 
-export default AdditionalInfo;
+const mapStateToProps = (state) => {
+    return {
+        jobs: state.jobs
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchData: (url) => dispatch(fetchSkillsSearchData(url))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AdditionalInfo);
+

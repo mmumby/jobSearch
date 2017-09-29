@@ -1,11 +1,15 @@
 
 export function jobs(state = [], action) {
     switch (action.type) {
-        case 'JOBS_FETCH_DATA_SUCCESS':
+        case 'FETCH_JOBS':
             return action.jobs;
-        break;
-        case 'JOBS_FETCH_SEARCH_DATA':
+
+        case 'FETCH_JOB_SEARCH_DATA':
             return action.jobs;
+
+        case 'FETCH_SKILL_SEARCH_DATA':
+            return action.jobs;
+
         default:
             return state;
     }

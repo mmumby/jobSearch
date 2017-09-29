@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../styles/header.css';
 import JobList from './JobList';
 import { connect } from 'react-redux';
-import { jobsFetchSearchData } from '../actions/index';
+import { fetchJobsSearchData } from '../actions/index';
 
 
 class Search extends Component {
@@ -29,6 +29,7 @@ class Search extends Component {
     })
   }
 
+
   render() {
     return (
       <div>
@@ -49,7 +50,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchData: (url) => dispatch(jobsFetchSearchData(url))
+        fetchData: (url) => dispatch(fetchJobsSearchData(url))
     };
 };
 

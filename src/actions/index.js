@@ -1,19 +1,13 @@
 
-export function jobsFetchDataSuccess(jobs) {
+// fetch job list on pageload
+export function fetchJobsSuccess(jobs) {
     return {
-        type: 'JOBS_FETCH_DATA_SUCCESS',
+        type: 'FETCH_JOBS',
         jobs
     };
 }
 
-export function jobsFetchSearchDataSuccess(jobs) {
-    return {
-        type: 'JOBS_FETCH_SEARCH_DATA_SUCCESS',
-        jobs
-    };
-}
-
-export function jobsFetchSearchData(url) {
+export function fetchJobs(url) {
     return (dispatch) => {
 
         fetch(url)
@@ -25,11 +19,20 @@ export function jobsFetchSearchData(url) {
                 return response;
             })
             .then((response) => response.json())
-            .then((jobs) => dispatch(jobsFetchSearchDataSuccess(jobs)))
+            .then((jobs) => dispatch(fetchJobsSuccess(jobs)))
     };
 }
 
-export function jobsFetchData(url) {
+// fetch jobs on search input
+
+export function fetchJobSearchDataSuccess(jobs) {
+    return {
+        type: 'FETCH_JOB_SEARCH_DATA',
+        jobs
+    };
+}
+
+export function fetchJobsSearchData(url) {
     return (dispatch) => {
 
         fetch(url)
@@ -41,6 +44,32 @@ export function jobsFetchData(url) {
                 return response;
             })
             .then((response) => response.json())
-            .then((jobs) => dispatch(jobsFetchDataSuccess(jobs)))
+            .then((jobs) => dispatch(fetchJobSearchDataSuccess(jobs)))
+    };
+}
+
+
+// fetch skills from search input
+
+export function fetchSkillsSearchDataSuccess(jobs) {
+    return {
+        type: 'FETCH_SKILL_SEARCH_DATA',
+        jobs
+    };
+}
+
+export function fetchSkillsSearchData(url) {
+    return (dispatch) => {
+
+        fetch(url)
+            .then((response) => {
+                if (!response.ok) {
+                    throw Error(response.statusText);
+                }
+
+                return response;
+            })
+            .then((response) => response.json())
+            .then((jobs) => dispatch(fetchSkillsSearchDataSuccess(jobs)))
     };
 }
