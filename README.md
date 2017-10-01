@@ -18,7 +18,6 @@ open http://localhost:3000
 * React: ^15.6.1
 * React-redux: ^5.0.6
 * Redux: ^3.7.2
-* Redux-thunk: ^2.2.0
 
 
 ### Final Product

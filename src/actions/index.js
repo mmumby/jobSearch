@@ -1,5 +1,6 @@
 
 // fetch job list on pageload
+// fetch joblist when 'JobSearch' title is clicked.
 export function fetchJobsSuccess(jobs) {
     return {
         type: 'FETCH_JOBS',

@@ -16,6 +16,7 @@
   font-size: 100px;
   margin-right: 60px;
   margin-top: 0;
+  cursor: pointer;
 }
 .search-bar {
   margin-top: 10px;

@@ -3,5 +3,5 @@ import { jobs } from './jobReducer';
 
 
 export default combineReducers({
-    jobs,
+    jobs
 });
