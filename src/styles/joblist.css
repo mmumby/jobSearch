@@ -52,3 +52,28 @@ color: white;
   position: absolute;
   margin: 0 330px;
 }
+
+body .modal {
+  position: fixed;
+  top: 100px;
+  left: 100px;
+  right: 100px;
+  bottom: 100px;
+  border: 1px solid #ccc;
+  background: #ccc;
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+  display: block;
+  z-index: 100;
+}
+
+.closeButton {
+  background-color: #ccc;
+  border: none;
+  color: white;
+  float: right;
+  margin-top: -15px;
+}
+

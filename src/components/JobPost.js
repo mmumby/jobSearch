@@ -1,36 +1,48 @@
 import React, { Component } from 'react';
 import '../styles/joblist.css';
-import ToggleDisplay from 'react-toggle-display';
 import Skills from './Skills';
+import Modal from 'react-modal';
 
 
 class JobPost extends Component {
-    // react state to toggle more info
     constructor() {
     super();
+
     this.state = {
-        show: false,
+      modalIsOpen: false
     };
   }
-  handleClick(event){
-    this.setState({
-      show: !this.state.show
-    });
+
+  openModal() {
+    this.setState({modalIsOpen: true});
   }
+
+  closeModal() {
+    this.setState({modalIsOpen: false});
+  }
+
 
   render() {
       return (
+        <div>
             <div>
             {this.props.jobs.map((job) => (
-                <div className="job-post" key={job.uuid} onClick={this.handleClick.bind(this)}>
+                <div className="job-post" key={job.uuid} onClick={this.openModal.bind(this)}>
                     {job.title}
                     {job.suggestion}
-                    <ToggleDisplay if={this.state.show} key={job.uuid} tag="section">
+                    <Modal isOpen={this.state.modalIsOpen.bind(this)}
+                          onRequestClose={this.closeModal.bind(this)}
+                          className="modal"
+                          contentLabel="Additional information">
                       <Skills id={job.uuid}/>
-                    </ToggleDisplay>
+                      <button className="closeButton" onClick={this.closeModal.bind(this)}>
+                       <i className="fa fa-3x fa-times-circle" aria-hidden="true"></i>
+                      </button>
+                    </Modal>
                 </div>
                 ))}
             </div>
+          </div>
     );
   }
 }
