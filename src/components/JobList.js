@@ -5,25 +5,21 @@ import { connect } from 'react-redux';
 import { fetchJobs } from '../actions/index';
 import JobPost from './JobPost';
 
-const JOBS_PER_PAGE = 20;
-const PAGE = 1;
-
-const getOffsetValue = (PAGE, JOBS_PER_PAGE) => {
-    return PAGE * JOBS_PER_PAGE;
-}
+let default_link = "api.dataatwork.org/v1/";
 
 class JobList extends Component {
 
     componentDidMount() {
-
-        this.props.fetchData(`http://api.dataatwork.org/v1/jobs?offset=${getOffsetValue}&page=${PAGE}&limit=${JOBS_PER_PAGE}`);
+        this.props.fetchData(`http://${default_link}jobs?offset=0&limit=50`);
     }
+
 
     render() {
         return (
-            <div className="joblist-container">
-                <JobPost jobs={this.props.jobs} />
-            </div>
+                <div className="joblist-container">
+                    <JobPost jobs={this.props.jobs}/>
+                </div>
+
         )
     }
 }

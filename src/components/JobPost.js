@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../styles/joblist.css';
 import ToggleDisplay from 'react-toggle-display';
+import Skills from './Skills';
+
 
 class JobPost extends Component {
     // react state to toggle more info
@@ -8,7 +10,6 @@ class JobPost extends Component {
     super();
     this.state = {
         show: false,
-        key: '',
     };
   }
   handleClick(event){
@@ -18,20 +19,18 @@ class JobPost extends Component {
   }
 
   render() {
-    return (
-        <div>
+      return (
             <div>
             {this.props.jobs.map((job) => (
                 <div className="job-post" key={job.uuid} onClick={this.handleClick.bind(this)}>
                     {job.title}
                     {job.suggestion}
                     <ToggleDisplay if={this.state.show} key={job.uuid} tag="section">
-                      skill info goes here..
+                      <Skills id={job.uuid}/>
                     </ToggleDisplay>
                 </div>
                 ))}
             </div>
-        </div>
     );
   }
 }

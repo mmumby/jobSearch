@@ -21,6 +21,7 @@ export function fetchJobs(url) {
             })
             .then((response) => response.json())
             .then((jobs) => dispatch(fetchJobsSuccess(jobs)))
+
     };
 }
 
@@ -72,5 +73,12 @@ export function fetchSkillsSearchData(url) {
             })
             .then((response) => response.json())
             .then((jobs) => dispatch(fetchSkillsSearchDataSuccess(jobs)))
+    };
+}
+// fetch skills by job{id}
+export function fetchSkillsByIdSuccess(jobs) {
+    return {
+        type: 'FETCH_SKILLS_BY_ID',
+        jobs
     };
 }

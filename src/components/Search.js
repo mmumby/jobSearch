@@ -3,7 +3,9 @@ import '../styles/header.css';
 import JobList from './JobList';
 import { connect } from 'react-redux';
 import { fetchJobsSearchData } from '../actions/index';
+import Links from './Links';
 
+let default_link = "api.dataatwork.org/v1/";
 
 class Search extends Component {
   constructor(){
@@ -29,18 +31,25 @@ class Search extends Component {
     })
   }
 
+  prevLink(){
+       this.props.fetchData(`http://${default_link}jobs?offset=0&limit=50`);
+    }
+
+  nextLink(){
+     this.props.fetchData(`http://${default_link}jobs?offset=100&limit=50`);
+  }
 
   render() {
     return (
-      <div>
         <div>
           <input onKeyDown={this.searchJobsKeyDown.bind(this)}
                 onChange={this.updateSearch.bind(this)}
                 type="text" className="search-bar"
                 placeholder="&#xf002;  Search by job title and hit ENTER"/>
           <JobList />
+          <Links prevLink={this.prevLink.bind(this)}
+                  nextLink={this.nextLink.bind(this)}/>
         </div>
-      </div>
     )
   }
 }

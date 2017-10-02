@@ -13,8 +13,42 @@
   margin-top: 10px;
 }
 
+.job-post:last {
+  display: none;
+  border: none;
+}
+
 .job-post:hover {
 cursor: pointer;
 background-color: #a2a2a2;
 color: white;
+}
+
+.pagination-links {
+  list-style: none;
+  margin-right: 400px;
+}
+
+.pagination-links a {
+  display: inline-block;
+  padding: 8px 16px;
+  float: left;
+  color: black;
+  text-decoration: none;
+}
+
+.pagination-links a:hover {
+  background-color: #a2a2a2;
+  border-radius: 5px;
+}
+
+.pagination-links a:active {
+  background-color: #a2a2a2;
+  border-radius: 5px;
+}
+
+#left {
+  float: left;
+  position: absolute;
+  margin: 0 330px;
 }

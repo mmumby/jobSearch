@@ -10,6 +10,9 @@ export function jobs(state = [], action) {
         case 'FETCH_SKILL_SEARCH_DATA':
             return action.jobs;
 
+        case 'FETCH_SKILLS_BY_ID':
+            return action.jobs;
+
         default:
             return state;
     }

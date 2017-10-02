@@ -3,13 +3,6 @@ import '../styles/header.css';
 import { connect } from 'react-redux';
 import { fetchJobsSearchData } from '../actions/index';
 
-const JOBS_PER_PAGE = 20;
-const PAGE = 1;
-
-  const getOffsetValue = (PAGE, JOBS_PER_PAGE) => {
-    return PAGE * JOBS_PER_PAGE;
-}
-
 class Header extends Component {
   state = {
     isTop: true,
@@ -23,7 +16,7 @@ class Header extends Component {
 
 
   defaultHomeLink(event){
-   this.props.fetchData(`http://api.dataatwork.org/v1/jobs?offset=${getOffsetValue}&page=${PAGE}&limit=${JOBS_PER_PAGE}`);
+   this.props.fetchData('http://api.dataatwork.org/v1/jobs');
 
     let pageTop = setInterval(this.scrollStep.bind(this), this.props.delayInMs);
     this.setState({
