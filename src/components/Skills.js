@@ -1,13 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../styles/skills.css';
 import { connect } from 'react-redux';
 import { fetchSkillsById, fetchJobs } from '../actions/index';
 
 
-class Skills extends Component {
+
+class Skills extends React.Component {
 
     componentDidMount() {
         this.props.fetchData(`http://api.dataatwork.org/v1/jobs/${this.props.id}/related_skills`);
+        this.props.fetchData(`http://api.dataatwork.org/v1/skills/${this.props.id}/related_skills`);
+
+    }
+
+    componentWillUnmount() {
+      console.log('UNMOUNTED')
     }
 
     similarJobs(){

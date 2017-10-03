@@ -19,7 +19,7 @@ class Search extends Component {
     if (event.key === 'Enter') {
       console.log("searchJobs: "+this.state.searchValue);
       event.target.value = '';
-      this.props.fetchData(`http://api.dataatwork.org/v1/jobs/autocomplete?contains=${this.state.searchValue}&offset=0&limit=20`);
+      this.props.fetchData(`http://api.dataatwork.org/v1/jobs/autocomplete?contains=${this.state.searchValue}`);
     }
   }
 

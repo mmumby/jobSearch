@@ -26,29 +26,30 @@ class JobPost extends Component {
 
   render() {
       return (
-        <div>
+
           <div>
               <div>
               {this.props.jobs.map((job) => (
                   <div className="job-post" key={job.uuid} onClick={this.openModal.bind(this)}>
                       {job.title}
                       {job.suggestion}
+                  </div>
+                  ))}
+              </div>
+              <div>
                       <Modal isOpen={this.state.modalIsOpen}
                             onAfterOpen={this.afterOpenModal}
                             onRequestClose={this.closeModal}
                             className="modal"
-                            contentLabel="Example Modal"
-                            key={job.uuid}>
+                            contentLabel="Skill Modal">
                         <button className="closeButton" onClick={this.closeModal.bind(this)}>
                          <i className="fa fa-2x fa-times-circle" aria-hidden="true"></i>
                         </button>
-                        <Skills id={job.uuid}/>
+                        <Skills />
                       </Modal>
-                  </div>
-                  ))}
-              </div>
+                    </div>
             </div>
-          </div>
+
     );
   }
 }

@@ -3,8 +3,6 @@
   background-color: white;
   min-height: 400px;
   padding: 100px;
-  z-index: 1;
-  position: relative;
 }
 .nav-header {
   color: black;

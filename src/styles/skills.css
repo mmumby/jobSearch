@@ -1,9 +1,9 @@
 body .modal {
   position: fixed;
-  top: 100px;
+  top: 50px;
   left: 100px;
   right: 100px;
-  bottom: 100px;
+  bottom: 50px;
   border: 1px solid #ccc;
   background: #ccc;
   overflow: auto;
@@ -11,7 +11,7 @@ body .modal {
   outline: none;
   padding: 20px;
   display: block;
-  z-index: 100;
+  z-index: 1;
 }
 
 .closeButton {
