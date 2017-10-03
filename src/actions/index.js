@@ -10,17 +10,19 @@ export function fetchJobsSuccess(jobs) {
 
 export function fetchJobs(url) {
     return (dispatch) => {
+        dispatch(searchIsLoading(true));
 
         fetch(url)
             .then((response) => {
                 if (!response.ok) {
                     throw Error(response.statusText);
                 }
-
+                dispatch(searchIsLoading(false));
                 return response;
             })
             .then((response) => response.json())
             .then((jobs) => dispatch(fetchJobsSuccess(jobs)))
+            .catch(() => dispatch(searchHasErrored(true)));
     };
 }
 
@@ -35,6 +37,7 @@ export function fetchSkillsSearchDataSuccess(jobs) {
 
 export function fetchSkillsSearchData(url) {
     return (dispatch) => {
+        dispatch(searchIsLoading(true));
 
         fetch(url)
             .then((response) => {
@@ -42,10 +45,12 @@ export function fetchSkillsSearchData(url) {
                     throw Error(response.statusText);
                 }
 
+                dispatch(searchIsLoading(false));
                 return response;
             })
             .then((response) => response.json())
             .then((jobs) => dispatch(fetchSkillsSearchDataSuccess(jobs)))
+            .catch(() => dispatch(searchHasErrored(true)));
     };
 }
 // fetch skills by job{id}
@@ -55,4 +60,18 @@ export function fetchSkillsByIdSuccess(jobs) {
         jobs
     };
 }
+
+export function searchHasErrored(bool) {
+    return {
+        type: 'SEARCH_HAS_ERRORED',
+        hasErrored: bool
+    };
+}
+export function searchIsLoading(bool) {
+    return {
+        type: 'SEARCH_IS_LOADING',
+        isLoading: bool
+    };
+}
+
 

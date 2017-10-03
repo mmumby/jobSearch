@@ -28,7 +28,6 @@ class App extends Component {
                 <Search />
                 <AdditionalInfo />
                 <ScrollTop />
-            {React.cloneElement(this.props.children, this.props)}
             </div>
     )
   }

@@ -39,7 +39,8 @@ class JobPost extends Component {
                             onAfterOpen={this.afterOpenModal}
                             onRequestClose={this.closeModal}
                             className="modal"
-                            contentLabel="Example Modal">
+                            contentLabel="Example Modal"
+                            key={job.uuid}>
                         <Skills id={job.uuid}/>
                         <button className="closeButton" onClick={this.closeModal.bind(this)}>
                          <i className="fa fa-2x fa-times-circle" aria-hidden="true"></i>
