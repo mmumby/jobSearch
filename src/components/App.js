@@ -10,7 +10,6 @@ import localForage from 'localforage'
 import configureStore from '../store/configureStore';
 import { Provider } from 'react-redux';
 
-
 const store = configureStore();
 persistStore(store)
 
