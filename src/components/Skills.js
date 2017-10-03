@@ -7,14 +7,9 @@ import { fetchSkillsById, fetchJobs } from '../actions/index';
 
 class Skills extends React.Component {
 
-    componentDidMount() {
+    componentWillMount() {
         this.props.fetchData(`http://api.dataatwork.org/v1/jobs/${this.props.id}/related_skills`);
         this.props.fetchData(`http://api.dataatwork.org/v1/skills/${this.props.id}/related_skills`);
-
-    }
-
-    componentWillUnmount() {
-      console.log('UNMOUNTED')
     }
 
     similarJobs(){
@@ -26,8 +21,9 @@ class Skills extends React.Component {
         <div>
           <div>
             <div key={this.props.id}>
-                <span className="job-title-skills">{this.props.skills.job_title}</span>
-                <a onClick={this.similarJobs.bind(this)}><i className="fa fa-search"></i>See Similar job listings!</a>
+                <div className="job-title-skills">{this.props.skills.job_title}</div>
+
+                <div><a onClick={this.similarJobs.bind(this)}><i className="fa fa-search"></i>See Similar job listings!</a></div>
                 {this.props.skills.skills.map((skill) => (
                   <div key={skill.skill_uuid}>
 
@@ -36,7 +32,6 @@ class Skills extends React.Component {
                           <span id="skillname">{skill.skill_name}-</span>
                           <span>{skill.description}</span>
                       </div>
-
                   </div>
                 ))}
               </div>
