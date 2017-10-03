@@ -54,12 +54,32 @@ export function fetchSkillsSearchData(url) {
     };
 }
 // fetch skills by job{id}
-export function fetchSkillsByIdSuccess(jobs) {
+export function fetchSkillsByIdSuccess(skills) {
     return {
         type: 'FETCH_SKILLS_BY_ID',
-        jobs
+         skills
     };
 }
+
+export function fetchSkillsById(url) {
+    return (dispatch) => {
+        dispatch(searchIsLoading(true));
+
+        fetch(url)
+            .then((response) => {
+                if (!response.ok) {
+                    throw Error(response.statusText);
+                }
+
+                dispatch(searchIsLoading(false));
+                return response;
+            })
+            .then((response) => response.json())
+            .then((jobs) => dispatch(fetchSkillsByIdSuccess(jobs)))
+            .catch(() => dispatch(searchHasErrored(true)));
+    };
+}
+
 
 export function searchHasErrored(bool) {
     return {
