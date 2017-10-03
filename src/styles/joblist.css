@@ -1,6 +1,7 @@
 
 
 .job-post{
+  text-transform: capitalize;
   border: .6px solid #a2a2a2;
   width: 700px;
   font-size: larger;
@@ -41,31 +42,5 @@ color: white;
 .pagination-links a:active {
   background-color: #a2a2a2;
   border-radius: 5px;
-}
-
-
-
-body .modal {
-  position: fixed;
-  top: 100px;
-  left: 100px;
-  right: 100px;
-  bottom: 100px;
-  border: 1px solid #ccc;
-  background: #ccc;
-  overflow: auto;
-  border-radius: 4px;
-  outline: none;
-  padding: 20px;
-  display: block;
-  z-index: 100;
-}
-
-.closeButton {
-  background-color: #ccc;
-  border: none;
-  color: white;
-  float: right;
-  margin-top: -15px;
 }
 

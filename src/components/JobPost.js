@@ -4,7 +4,6 @@ import Skills from './Skills';
 import Modal from 'react-modal';
 
 
-
 class JobPost extends Component {
     constructor() {
     super();
@@ -25,7 +24,6 @@ class JobPost extends Component {
     this.setState({modalIsOpen: false});
   }
 
-
   render() {
       return (
         <div>
@@ -41,10 +39,10 @@ class JobPost extends Component {
                             className="modal"
                             contentLabel="Example Modal"
                             key={job.uuid}>
-                        <Skills id={job.uuid}/>
                         <button className="closeButton" onClick={this.closeModal.bind(this)}>
                          <i className="fa fa-2x fa-times-circle" aria-hidden="true"></i>
                         </button>
+                        <Skills id={job.uuid}/>
                       </Modal>
                   </div>
                   ))}
@@ -54,7 +52,6 @@ class JobPost extends Component {
     );
   }
 }
-
 
 
 export default JobPost;

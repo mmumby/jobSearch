@@ -19,7 +19,7 @@ class Search extends Component {
     if (event.key === 'Enter') {
       console.log("searchJobs: "+this.state.searchValue);
       event.target.value = '';
-      this.props.fetchData(`http://api.dataatwork.org/v1/jobs/autocomplete?contains=${this.state.searchValue}`);
+      this.props.fetchData(`http://api.dataatwork.org/v1/jobs/autocomplete?contains=${this.state.searchValue}&offset=0&limit=20`);
     }
   }
 
@@ -32,11 +32,11 @@ class Search extends Component {
   }
 
   prevLink(){
-       this.props.fetchData(`http://${default_link}jobs?offset=0&limit=50`);
+       this.props.fetchData(`http://${default_link}jobs?offset=0&limit=20`);
     }
 
   nextLink(){
-     this.props.fetchData(`http://${default_link}jobs?offset=100&limit=50`);
+     this.props.fetchData(`http://${default_link}jobs?offset=20&limit=20`);
   }
 
   render() {
