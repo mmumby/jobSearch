@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/header.css';
 import { connect } from 'react-redux';
-import { fetchJobsSearchData } from '../actions/index';
+import { fetchJobs } from '../actions/index';
 
 class Header extends Component {
   state = {
@@ -52,7 +52,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchData: (url) => dispatch(fetchJobsSearchData(url))
+        fetchData: (url) => dispatch(fetchJobs(url))
     };
 };
 

@@ -27,7 +27,7 @@ class ScrollTop extends Component {
   render () {
       return <button title='Back to top' className='scroll'
                onClick={this.scrollToTop.bind(this)}>
-                <i className="fa fa-arrow-up fa-2x" aria-hidden="true"></i>
+                <i className="fa fa-arrow-up" aria-hidden="true"></i>
               </button>;
    }
 }

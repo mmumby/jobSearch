@@ -4,6 +4,7 @@ import Skills from './Skills';
 import Modal from 'react-modal';
 
 
+
 class JobPost extends Component {
     constructor() {
     super();
@@ -17,6 +18,9 @@ class JobPost extends Component {
     this.setState({modalIsOpen: true});
   }
 
+  afterOpenModal() {
+  }
+
   closeModal() {
     this.setState({modalIsOpen: false});
   }
@@ -25,26 +29,31 @@ class JobPost extends Component {
   render() {
       return (
         <div>
-            <div>
-            {this.props.jobs.map((job) => (
-                <div className="job-post" key={job.uuid} onClick={this.openModal.bind(this)}>
-                    {job.title}
-                    {job.suggestion}
-                    <Modal isOpen={this.state.modalIsOpen.bind(this)}
-                          onRequestClose={this.closeModal.bind(this)}
-                          className="modal"
-                          contentLabel="Additional information">
-                      <Skills id={job.uuid}/>
-                      <button className="closeButton" onClick={this.closeModal.bind(this)}>
-                       <i className="fa fa-3x fa-times-circle" aria-hidden="true"></i>
-                      </button>
-                    </Modal>
-                </div>
-                ))}
+          <div>
+              <div>
+              {this.props.jobs.map((job) => (
+                  <div className="job-post" key={job.uuid} onClick={this.openModal.bind(this)}>
+                      {job.title}
+                      {job.suggestion}
+                      <Modal isOpen={this.state.modalIsOpen}
+                            onAfterOpen={this.afterOpenModal}
+                            onRequestClose={this.closeModal}
+                            className="modal"
+                            contentLabel="Example Modal">
+                        <Skills id={job.uuid}/>
+                        <button className="closeButton" onClick={this.closeModal.bind(this)}>
+                         <i className="fa fa-2x fa-times-circle" aria-hidden="true"></i>
+                        </button>
+                      </Modal>
+                  </div>
+                  ))}
+              </div>
             </div>
           </div>
     );
   }
 }
+
+
 
 export default JobPost;

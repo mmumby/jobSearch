@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../styles/header.css';
 import JobList from './JobList';
 import { connect } from 'react-redux';
-import { fetchJobsSearchData } from '../actions/index';
+import { fetchJobs } from '../actions/index';
 import Links from './Links';
 
 let default_link = "api.dataatwork.org/v1/";
@@ -62,7 +62,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchData: (url) => dispatch(fetchJobsSearchData(url))
+        fetchData: (url) => dispatch(fetchJobs(url))
     };
 };
 
