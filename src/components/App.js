@@ -7,10 +7,8 @@ import ScrollTop from './ScrollTop';
 import AdditionalInfo from './AdditionalInfo';
 import { persistStore } from 'redux-persist';
 import localForage from 'localforage'
-import configureStore from '../store/configureStore';
-import { Provider } from 'react-redux';
+import { store } from '../store/configureStore';
 
-const store = configureStore();
 persistStore(store)
 
 class App extends Component {
@@ -25,14 +23,13 @@ class App extends Component {
 
   render() {
     return (
-        <Provider store={store}>
             <div className="App">
                 <Header />
                 <Search />
                 <AdditionalInfo />
                 <ScrollTop />
+            {React.cloneElement(this.props.children, this.props)}
             </div>
-        </Provider>
     )
   }
 }

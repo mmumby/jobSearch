@@ -8,15 +8,20 @@ import JobList from './components/JobList';
 import Skills from './components/Skills';
 
 
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute } from 'react-router';
+import { history, store } from './store/configureStore';
+import { Provider } from 'react-redux';
+
 
 const router = (
-        <Router history={browserHistory}>
-          <Route path="/" component={App}>
-            <IndexRoute component={JobList}></IndexRoute>
-            <Route path="/view/:jobId" component={Skills}></Route>
-          </Route>
-        </Router>
+          <Provider store={store}>
+            <Router history={history}>
+              <Route path="/" component={App}>
+                <IndexRoute component={JobList}></IndexRoute>
+                <Route path="/view/:jobId" component={Skills}></Route>
+              </Route>
+            </Router>
+          </Provider>
     )
 
 ReactDOM.render(router, document.getElementById('root'));

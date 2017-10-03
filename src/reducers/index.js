@@ -1,7 +1,11 @@
 import { combineReducers } from 'redux';
 import { jobs } from './jobReducer';
+import { routerReducer } from 'react-router-redux';
 
 
-export default combineReducers({
-    jobs
+const rootReducer = combineReducers({
+    jobs,
+    routing: routerReducer
 });
+
+export default rootReducer;
