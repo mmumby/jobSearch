@@ -12,6 +12,15 @@ npm install
 npm start
 open http://localhost:3000
 ```
+If install fails, run :
+
+```
+npm cashe clean
+npm install
+npm start
+open http://localhost:3000
+```
+
 
 ### Dependencies
 
@@ -23,6 +32,6 @@ open http://localhost:3000
 
 ### Final Product
 !["Screenshot of final product"](https://github.com/mmumby/jobSearch/blob/master/src/styles/img/home.png)
-!["Screenshot of final product"](https://github.com/mmumby/jobSearch/blob/master/src/styles/img/search.png)
 !["Screenshot of final product"](https://github.com/mmumby/jobSearch/blob/master/src/styles/img/skills.png)
+!["Screenshot of final product"](https://github.com/mmumby/jobSearch/blob/master/src/styles/img/search.png)
 
