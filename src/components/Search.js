@@ -31,12 +31,18 @@ class Search extends Component {
     })
   }
 
+  firstLink(){
+       this.props.fetchData(`http://${default_link}jobs?offset=0&limit=5`);
+    }
   prevLink(){
-       this.props.fetchData(`http://${default_link}jobs?offset=0&limit=20`);
+       this.props.fetchData(`http://${default_link}jobs?offset=5&limit=5`);
     }
 
   nextLink(){
-     this.props.fetchData(`http://${default_link}jobs?offset=20&limit=20`);
+     this.props.fetchData(`http://${default_link}jobs?offset=10&limit=5`);
+  }
+  lastLink(){
+     this.props.fetchData(`http://${default_link}jobs?offset=15&limit=5`);
   }
 
   render() {
@@ -48,7 +54,9 @@ class Search extends Component {
                 placeholder="&#xf002;  Search by job title and hit ENTER"/>
           <JobList />
           <Links prevLink={this.prevLink.bind(this)}
-                  nextLink={this.nextLink.bind(this)}/>
+                  nextLink={this.nextLink.bind(this)}
+                  firstLink={this.firstLink.bind(this)}
+                  lastLink={this.lastLink.bind(this)}/>
         </div>
     )
   }

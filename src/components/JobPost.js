@@ -5,12 +5,12 @@ import Modal from 'react-modal';
 
 
 class JobPost extends Component {
-    constructor() {
-    super();
+  constructor() {
+  super();
 
-    this.state = {
-      modalIsOpen: false
-    };
+  this.state = {
+    modalIsOpen: false
+  };
   }
 
   openModal() {

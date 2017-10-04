@@ -16,7 +16,7 @@ class Header extends Component {
 
 
   defaultHomeLink(event){
-   this.props.fetchData('http://api.dataatwork.org/v1/jobs');
+   this.props.fetchData('http://api.dataatwork.org/v1/jobs?limit=5');
 
     let pageTop = setInterval(this.scrollStep.bind(this), this.props.delayInMs);
     this.setState({
