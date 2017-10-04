@@ -50,3 +50,18 @@ body .modal {
   color: black;
   margin-right: 5px;
 }
+
+@media screen and (max-width: 1028px) {
+    body .modal {
+      top: inherit;
+      left: inherit;
+      right: inherit;
+      bottom: inherit;
+    }
+    .closeButton {
+      right: 0px;
+      position: relative;
+      margin-top: 0;
+    }
+
+}

@@ -4,7 +4,6 @@ import '../styles/normalize.css';
 import Search from './Search';
 import Header from './Header';
 import ScrollTop from './ScrollTop';
-import AdditionalInfo from './AdditionalInfo';
 import { persistStore } from 'redux-persist';
 import localForage from 'localforage'
 import { store } from '../store/configureStore';
@@ -26,7 +25,6 @@ class App extends Component {
             <div className="App">
                 <Header />
                 <Search />
-                <AdditionalInfo />
                 <ScrollTop />
             </div>
     )
