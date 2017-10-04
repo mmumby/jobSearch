@@ -15,7 +15,7 @@ open http://localhost:3000
 If install fails, run :
 
 ```
-npm cashe clean
+npm cache clean
 npm install
 npm start
 open http://localhost:3000
