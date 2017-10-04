@@ -32,17 +32,17 @@ class Search extends Component {
   }
 
   firstLink(){
-       this.props.fetchData(`http://${default_link}jobs?offset=0&limit=5`);
+       this.props.fetchData(`http://${default_link}jobs?offset=0&limit=1`);
     }
   prevLink(){
-       this.props.fetchData(`http://${default_link}jobs?offset=5&limit=5`);
+       this.props.fetchData(`http://${default_link}jobs?offset=5&limit=1`);
     }
 
   nextLink(){
-     this.props.fetchData(`http://${default_link}jobs?offset=10&limit=5`);
+     this.props.fetchData(`http://${default_link}jobs?offset=10&limit=1`);
   }
   lastLink(){
-     this.props.fetchData(`http://${default_link}jobs?offset=15&limit=5`);
+     this.props.fetchData(`http://${default_link}jobs?offset=15&limit=1`);
   }
 
   render() {

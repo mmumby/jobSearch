@@ -33,8 +33,6 @@ class JobPost extends Component {
 
   render() {
       return (
-        <div>
-          <div>
               <div>
               {this.props.jobs.map((job) => (
                   <div className="job-post" key={job.uuid} onClick={this.openModal.bind(this)}>
@@ -49,14 +47,11 @@ class JobPost extends Component {
                         <button className="closeButton" onClick={this.closeModal.bind(this)}>
                          <i className="fa fa-2x fa-times-circle" aria-hidden="true"></i>
                         </button>
-                        <div><a onClick={this.similarJobs.bind(this)}><i className="fa fa-search"></i>See Similar job listings!</a></div>
                         <Skills id={job.uuid}/>
                       </Modal>
                   </div>
                   ))}
               </div>
-            </div>
-          </div>
     );
   }
 }

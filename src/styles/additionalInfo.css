@@ -19,3 +19,12 @@
   font-size: small;
   border-radius: 5px;
 }
+
+.additional-info p {
+  display: inline;
+  cursor: pointer;
+  font-size: x-small;
+  padding-right: 10px;
+}
+
+
