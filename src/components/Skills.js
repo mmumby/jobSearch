@@ -46,22 +46,22 @@ class Skills extends React.Component {
       return <h2>Loading...</h2>;
     }
       return (
-        <div>
           <div>
-            <div key={this.props.id}>
-                <div className="job-title-skills">{this.props.skills.job_title}</div>
-                {this.props.skills.skills.map((skill) => (
-                  <div key={skill.skill_uuid}>
-                      <div className="table-contents">
-                          <span id="importance">{skill.importance}</span>
-                          <span id="skillname">{skill.skill_name}</span>
-                          <span>{skill.description}</span>
-                      </div>
-                  </div>
-                ))}
+            <div>
+              <div key={this.props.id}>
+                  <div className="job-title-skills">{this.props.skills.job_title}</div>
+                  {this.props.skills.skills.map((skill) => (
+                    <div key={skill.skill_uuid}>
+                        <div className="table-contents">
+                            <span id="importance">{skill.importance}</span>
+                            <span id="skillname">{skill.skill_name}</span>
+                            <span>{skill.description}</span>
+                        </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
         )
    }
 }

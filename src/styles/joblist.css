@@ -12,9 +12,8 @@
   margin-top: 10px;
 }
 
-.job-post:last {
+.job-post:last-of-type {
   display: none;
-  border: none;
 }
 
 .job-post:hover {

@@ -12,7 +12,7 @@ class Links extends Component {
               <a onClick={this.props.lastLink}><i className="fa fa-angle-double-right"></i></a>
           </div>
         </div>
-        )
+      )
    }
 }
 

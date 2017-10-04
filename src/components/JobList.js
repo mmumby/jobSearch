@@ -11,16 +11,15 @@ let default_link = "api.dataatwork.org/v1/";
 class JobList extends Component {
 
     componentDidMount() {
-        this.props.fetchData(`http://${default_link}jobs?offset=0&limit=5`)
+        this.props.fetchData(`http://${default_link}jobs?offset=0&limit=50`)
     }
 
 
     render() {
         return (
-                <div className="joblist-container">
-                    <JobPost jobs={this.props.jobs}/>
-                </div>
-
+            <div className="joblist-container">
+                <JobPost jobs={this.props.jobs}/>
+            </div>
         )
     }
 }
