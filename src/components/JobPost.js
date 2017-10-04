@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import '../styles/joblist.css';
 import Skills from './Skills';
 import Modal from 'react-modal';
+import { connect } from 'react-redux';
+import { fetchJobs } from '../actions/index';
 
 
 class JobPost extends Component {
@@ -24,6 +26,11 @@ class JobPost extends Component {
     this.setState({modalIsOpen: false});
   }
 
+ similarJobs(){
+     this.props.fetchJobs(`http://api.dataatwork.org/v1/jobs/${this.props.jobs.uuid}/related_jobs`);
+  }
+
+
   render() {
       return (
         <div>
@@ -42,6 +49,7 @@ class JobPost extends Component {
                         <button className="closeButton" onClick={this.closeModal.bind(this)}>
                          <i className="fa fa-2x fa-times-circle" aria-hidden="true"></i>
                         </button>
+                        <div><a onClick={this.similarJobs.bind(this)}><i className="fa fa-search"></i>See Similar job listings!</a></div>
                         <Skills id={job.uuid}/>
                       </Modal>
                   </div>
@@ -53,5 +61,17 @@ class JobPost extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        jobs: state.jobs
+    };
+};
 
-export default JobPost;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchJobs: (url) => dispatch(fetchJobs(url))
+    };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(JobPost);
