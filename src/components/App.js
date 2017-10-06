@@ -12,21 +12,20 @@ persistStore(store)
 
 class App extends Component {
 
+// keep current state when page is refreshed
   componentDidMount() {
-    persistStore(store,
-    {
+    persistStore(store, {
       storage: localForage,
     },
     )
   }
-
   render() {
     return (
-            <div className="App">
-                <Header />
-                <Search />
-                <ScrollTop />
-            </div>
+      <div className="App">
+          <Header />
+          <Search />
+          <ScrollTop />
+      </div>
     )
   }
 }

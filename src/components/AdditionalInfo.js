@@ -21,7 +21,6 @@ class AdditionalInfo extends Component {
 
   updateSkillSearch(event){
     console.log("updateSearch: "+event.target.value)
-// will change to redux.
     this.setState({
       searchValue: event.target.value
     })

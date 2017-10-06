@@ -1,6 +1,6 @@
 
 // fetch job list on pageload
-// fetch joblist when 'JobSearch' title is clicked.
+// fetch job list when search is conducted
 export function fetchJobsSuccess(jobs) {
     return {
         type: 'FETCH_JOBS',
@@ -27,7 +27,6 @@ export function fetchJobs(url) {
 }
 
 // fetch skills from search input
-
 export function fetchSkillsSearchDataSuccess(jobs) {
     return {
         type: 'FETCH_SKILL_SEARCH_DATA',
@@ -53,6 +52,7 @@ export function fetchSkillsSearchData(url) {
             .catch(() => dispatch(searchHasErrored(true)));
     };
 }
+
 // fetch skills by job{id}
 export function fetchSkillsByIdSuccess(skills) {
     return {
@@ -80,7 +80,7 @@ export function fetchSkillsById(url) {
     };
 }
 
-
+// return bool if search has errored of is still loading.
 export function searchHasErrored(bool) {
     return {
         type: 'SEARCH_HAS_ERRORED',

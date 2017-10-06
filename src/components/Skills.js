@@ -6,6 +6,7 @@ import { fetchSkillsById } from '../actions/index';
 
 
 class Skills extends React.Component {
+  // render related_skills when job is clicked - show "loading..." if necessary.
   constructor(props) {
     super();
     this.state = {
@@ -16,7 +17,7 @@ class Skills extends React.Component {
   }
 
   loadData() {
-    var promise = new Promise((resolve, reject) => {
+    const promise = new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve('This is my data.');
       }, 3000);
@@ -42,7 +43,6 @@ class Skills extends React.Component {
 
   render () {
     if (this.state.loading) {
-      console.log('This happens 4th - when waiting for data.');
       return <h2>Loading...</h2>;
     }
       return (
@@ -65,6 +65,7 @@ class Skills extends React.Component {
         )
    }
 }
+
 const mapStateToProps = (state) => {
     return {
         skills: state.skills

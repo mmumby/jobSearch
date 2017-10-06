@@ -7,6 +7,7 @@ import { fetchJobs } from '../actions/index';
 
 
 class JobPost extends Component {
+  // when individual Job title is clicked - render pop-up with related_skills
   constructor() {
   super();
 
@@ -16,14 +17,15 @@ class JobPost extends Component {
   }
 
   openModal() {
-    this.setState({modalIsOpen: true});
-  }
-
-  afterOpenModal() {
+    this.setState({
+      modalIsOpen: true
+    });
   }
 
   closeModal() {
-    this.setState({modalIsOpen: false});
+    this.setState({
+      modalIsOpen: false
+    });
   }
 
  // similarJobs(){
@@ -38,7 +40,6 @@ class JobPost extends Component {
                   {this.props.job.title}
                   {this.props.job.suggestion}
                   <Modal isOpen={this.state.modalIsOpen}
-                        onAfterOpen={this.afterOpenModal}
                         onRequestClose={this.closeModal}
                         className="modal"
                         contentLabel="Example Modal"

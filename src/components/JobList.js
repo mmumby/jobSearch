@@ -9,11 +9,10 @@ import JobPost from './JobPost';
 let default_link = "api.dataatwork.org/v1/";
 
 class JobList extends Component {
-
+// when page loads show default "/jobs" data
     componentDidMount() {
         this.props.fetchData(`http://${default_link}jobs?offset=0&limit=50`)
     }
-
 
     render() {
         return (

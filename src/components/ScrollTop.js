@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../styles/scroll.css';
 
 class ScrollTop extends Component {
+// scroll to top of page when button is clicked
   constructor() {
     super();
 

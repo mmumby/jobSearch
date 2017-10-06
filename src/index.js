@@ -12,7 +12,7 @@ import { Router, Route, IndexRoute } from 'react-router';
 import { history, store } from './store/configureStore';
 import { Provider } from 'react-redux';
 
-
+// react-router is set up for future use - currently only "/" is being used
 const router = (
           <Provider store={store}>
             <Router history={history}>

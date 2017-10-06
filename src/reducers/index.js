@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux';
-import { jobs, searchHasErrored, searchIsLoading, skills } from './jobReducer';
+import { jobs } from './jobReducer';
+import { searchHasErrored, searchIsLoading } from './errorReducer';
+import { skills } from './skillReducer';
 import { routerReducer } from 'react-router-redux';
 
 

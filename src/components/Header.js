@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import '../styles/header.css';
-import { connect } from 'react-redux';
-import { fetchJobs } from '../actions/index';
+
 
 class Header extends Component {
-  state = {
-    isTop: true,
-  };
+  // when 'JobSearch' is clicked scroll to top of page
+  constructor() {
+    super();
+
+    this.state = {
+        pageTop: 0
+    };
+  }
 
   componentDidMount() {
     document.addEventListener('scroll', () => {
@@ -16,8 +20,6 @@ class Header extends Component {
 
 
   defaultHomeLink(event){
-   this.props.fetchData('http://api.dataatwork.org/v1/jobs?limit=50');
-
     let pageTop = setInterval(this.scrollStep.bind(this), this.props.delayInMs);
     this.setState({
         pageTop: pageTop
@@ -44,16 +46,4 @@ class Header extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        jobs: state.jobs
-    };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchData: (url) => dispatch(fetchJobs(url))
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default Header;
