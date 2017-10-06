@@ -32,20 +32,6 @@ class Search extends Component {
     })
   }
 
-  firstLink(){
-       this.props.fetchData(`http://${default_link}jobs?offset=0&limit=1`);
-    }
-  prevLink(){
-       this.props.fetchData(`http://${default_link}jobs?offset=5&limit=1`);
-    }
-
-  nextLink(){
-     this.props.fetchData(`http://${default_link}jobs?offset=10&limit=1`);
-  }
-  lastLink(){
-     this.props.fetchData(`http://${default_link}jobs?offset=15&limit=1`);
-  }
-
   render() {
     return (
         <div>
@@ -55,10 +41,6 @@ class Search extends Component {
                 placeholder="&#xf002;  Search by job title and hit ENTER"/>
           <AdditionalInfo />
           <JobList />
-          <Links prevLink={this.prevLink.bind(this)}
-                  nextLink={this.nextLink.bind(this)}
-                  firstLink={this.firstLink.bind(this)}
-                  lastLink={this.lastLink.bind(this)}/>
         </div>
     )
   }

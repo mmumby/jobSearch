@@ -7,7 +7,7 @@ import { fetchJobs } from '../actions/index';
 
 
 class JobPost extends Component {
-  // when individual Job title is clicked - render pop-up with related_skills
+  // when individual Job title is clicked - render pop-up with skill info
   constructor() {
   super();
 
@@ -27,11 +27,6 @@ class JobPost extends Component {
       modalIsOpen: false
     });
   }
-
- // similarJobs(){
- //     this.props.fetchJobs(`http://api.dataatwork.org/v1/jobs/${this.props.job.uuid}/related_jobs`);
- //  }
-
 
   render() {
       return (
@@ -54,18 +49,5 @@ class JobPost extends Component {
       );
     }
   }
-
-// const mapStateToProps = (state) => {
-//     return {
-//         jobs: state.jobs
-//     };
-// };
-
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         fetchJobs: (url) => dispatch(fetchJobs(url))
-//     };
-// };
-
 
 export default JobPost;
