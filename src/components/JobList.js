@@ -18,7 +18,9 @@ class JobList extends Component {
     render() {
         return (
             <div className="joblist-container">
-                <JobPost jobs={this.props.jobs}/>
+            {this.props.jobs.map((job) => (
+                <JobPost job={job}/>
+                ))}
             </div>
         )
     }

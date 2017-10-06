@@ -12,9 +12,6 @@
   margin-top: 10px;
 }
 
-.job-post:last-of-type {
-  display: none;
-}
 
 .job-post:hover {
 cursor: pointer;
