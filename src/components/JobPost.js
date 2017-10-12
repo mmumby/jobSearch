@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import '../styles/joblist.css';
 import Skills from './Skills';
 import Modal from 'react-modal';
-import { connect } from 'react-redux';
-import { fetchJobs } from '../actions/index';
 
 
 class JobPost extends Component {

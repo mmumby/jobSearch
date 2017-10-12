@@ -4,9 +4,6 @@ import JobList from './JobList';
 import AdditionalInfo from './AdditionalInfo';
 import { connect } from 'react-redux';
 import { fetchJobs } from '../actions/index';
-import Links from './Links';
-
-let default_link = "api.dataatwork.org/v1/";
 
 class Search extends Component {
   constructor(){

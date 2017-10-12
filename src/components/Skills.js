@@ -7,42 +7,13 @@ import { fetchSkillsById } from '../actions/index';
 
 class Skills extends React.Component {
   // render related_skills when job is clicked - show "loading..." if necessary.
-  constructor(props) {
-    super();
-    this.state = {
-      loading: false,
-      data: ''
-    };
-
-  }
-
-  loadData() {
-    const promise = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve('This is my data.');
-      }, 3000);
-    });
-    return promise;
-  }
-
   componentWillMount() {
-    this.setState({
-     loading: true
-   });
-    this.loadData()
-    .then((data) => {
       this.props.fetchData(`http://api.dataatwork.org/v1/jobs/${this.props.id}/related_skills`);
       this.props.fetchData(`http://api.dataatwork.org/v1/skills/${this.props.id}/related_skills`);
-
-      this.setState({
-        data: data,
-        loading: false
-      });
-    });
   }
 
   render () {
-    if (this.state.loading) {
+    if (this.props.loading) {
       return <h2>Loading...</h2>;
     }
       return (
@@ -68,7 +39,8 @@ class Skills extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        skills: state.skills
+        skills: state.skills,
+        loading: state.searchIsLoading
     };
 };
 
