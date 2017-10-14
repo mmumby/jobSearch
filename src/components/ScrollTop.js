@@ -20,6 +20,7 @@ class ScrollTop extends Component {
 
   scrollToTop() {
     let pageTop = setInterval(this.scrollStep.bind(this), this.props.delayInMs);
+
     this.setState({
         pageTop: pageTop
       });

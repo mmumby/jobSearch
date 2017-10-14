@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/header.css';
 import JobList from './JobList';
-import AdditionalInfo from './AdditionalInfo';
 import { connect } from 'react-redux';
 import { fetchJobs } from '../actions/index';
 
@@ -36,7 +35,6 @@ class Search extends Component {
                 onChange={this.updateSearch.bind(this)}
                 type="text" className="search-bar"
                 placeholder="&#xf002;  Search by job title and hit ENTER"/>
-          <AdditionalInfo />
           <JobList />
         </div>
     )

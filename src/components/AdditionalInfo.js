@@ -3,6 +3,8 @@ import '../styles/additionalInfo.css';
 import { connect } from 'react-redux';
 import { fetchSkillsSearchData } from '../actions/index';
 
+
+// component not included in app at the moment
 class AdditionalInfo extends Component {
   constructor(){
     super()
