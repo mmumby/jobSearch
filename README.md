@@ -1,6 +1,6 @@
 # JobSearch
 
-A job search/skill search application created with React and Redux.
+A job search application created with React and Redux that uses the dataatwork api. The application allowes users to search for a job by title and get all related skills for that job.
 
 ### Getting Started
 
